@@ -39,6 +39,8 @@ dependencies:
   flutter_swiper_view: ^1.1.8
   dio: ^5.4.1
   shared_preferences: ^2.0.13
+  # fluro: ^1.5.0
+  oktoast: ^3.0.0
 
 dev_dependencies:
   flutter_test:

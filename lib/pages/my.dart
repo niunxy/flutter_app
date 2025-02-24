@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widget/myDialog.dart';
 
 class MyPage extends StatefulWidget {
   MyPage({super.key});
@@ -10,6 +11,17 @@ class MyPage extends StatefulWidget {
 class _MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
+    void _myDialog() {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return MyDialog(
+              title: '5445',
+              content: '465465465',
+            );
+          });
+    }
+
     return SafeArea(
       child: Container(
         height: 400,
@@ -34,7 +46,10 @@ class _MyPageState extends State<MyPage> {
             color: Colors.yellow,
             height: 80,
             width: 80,
-            
+            child: ElevatedButton(
+              child: Text("Button"),
+              onPressed: _myDialog,
+            ),
           ),
         ]),
         // child: MySwiper(),

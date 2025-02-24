@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:niun/http/interceptor.dart';
 
 class DioInstance {
   static DioInstance? _instance;
@@ -27,6 +28,7 @@ class DioInstance {
         sendTimeout: sendTimeout ?? _defaultTime,
         responseType: responseType,
         contentType: contentType);
+    _dio.interceptors.add(ResponseInterceptor());
   }
 
   Future<Response> get({
@@ -35,7 +37,7 @@ class DioInstance {
     Options? options,
     CancelToken? cancelToken,
   }) async {
-    return _dio.get(
+    return await _dio.get(
       path,
       queryParameters: param,
       options: options ??
@@ -55,7 +57,7 @@ class DioInstance {
     Options? options,
     CancelToken? cancelToken,
   }) async {
-    return _dio.post(
+    return await _dio.post(
       path,
       queryParameters: param,
       data: data,
@@ -73,4 +75,4 @@ class DioInstance {
 
 
 // 入口主函数调用
-// DioInstance.instance.initDio('http://localhost:8080/api);
+// DioInstance.instance.initDio(baseUrl: 'http://localhost:8080/api');

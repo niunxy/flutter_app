@@ -3,6 +3,7 @@ import './home.dart';
 import './discover.dart';
 import './my.dart';
 import './login.dart';
+import './drawer.dart';
 class TabPage extends StatefulWidget {
   const TabPage({super.key});
 
@@ -12,7 +13,7 @@ class TabPage extends StatefulWidget {
 
 class _TabPageState extends State<TabPage> {
   int currentIdx = 0;
-  List pageList = [HomePage(),DiscoverPage(), Login()];
+  List pageList = [HomePage(),DiscoverPage(), MyPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
