@@ -15,6 +15,8 @@ class ResponseInterceptor extends Interceptor {
           } else if (rsp.errorCode == -1001) {
             handler.reject(DioException(
                 requestOptions: response.requestOptions, message: "未登录"));
+                // OKToast必须是APP的顶层组件；
+                // ScreenUtilInit(designSize: Size(375,667), builder: () => MaterialApp())
                 showToast("请先登录");
           } else {
             handler.next(Response(

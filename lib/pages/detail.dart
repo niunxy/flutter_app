@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+  String id;
+  DetailPage({super.key, required this.id, });
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -23,7 +24,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(name ?? '没有传值'),
+      child: Text(widget.id + name!),
     );
   }
 }

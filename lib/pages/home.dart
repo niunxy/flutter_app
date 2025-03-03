@@ -1,7 +1,10 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:provider/provider.dart';
 import '../niunIcon.dart';
 import '../model/home_vm.dart';
+import '../../config/application.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -10,8 +13,16 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _TabController;
   HomeViewModel viewModel = new HomeViewModel();
+  @override
+  void initState() {
+    super.initState();
+    _TabController = TabController(length: 2, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<HomeViewModel>(
@@ -19,8 +30,54 @@ class _HomePageState extends State<HomePage> {
           return viewModel;
         },
         child: Scaffold(
-          appBar: AppBar(title: Text('5456465')),
-          body: Column(
+          appBar: AppBar(
+            title: Text('5456465'),
+            bottom: TabBar(controller: _TabController, tabs: [
+              Tab(
+                icon: Icon(NiunIcon.zhifudingjin),
+              ),
+              Tab(
+                icon: Icon(NiunIcon.zhifudingjin),
+              ),
+            ]),
+          ),
+          body: TabBarView(
+            controller: _TabController,
+            children: [
+              ListView(
+                children: [
+                  ListTile(
+                    title: Text('11114563825'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Application.router.navigateTo(
+                        context,
+                        '/detail?id=jkjk',
+                        routeSettings: RouteSettings(arguments: {'name': '19'}),
+                        transition: TransitionType.inFromBottom,
+                      );
+                      // Navigator.pushNamed(context, '/detail?id=jkjk',
+                      //     arguments: {'name': 'llllllll'}, );
+                    },
+                    child: Text('TextButton'),
+                  ),
+                  /* InAppWebView(
+                    initialUrlRequest:
+                        URLRequest(url: WebUri("https://www.google.com")),
+                  ), */
+                ],
+              ),
+              ListView(
+                children: [
+                  ListTile(
+                    title: Text('222'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          /* body: Column(
             children: [
               Icon(NiunIcon.zhifudingjin),
               TextButton(
@@ -41,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text('修改状态值'),
               ),
             ],
-          ),
+          ), */
         ));
   }
 }

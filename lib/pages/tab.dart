@@ -4,6 +4,8 @@ import './discover.dart';
 import './my.dart';
 import './login.dart';
 import './drawer.dart';
+import './animated.dart';
+import './map/flutterMap.dart';
 class TabPage extends StatefulWidget {
   const TabPage({super.key});
 
@@ -13,7 +15,11 @@ class TabPage extends StatefulWidget {
 
 class _TabPageState extends State<TabPage> {
   int currentIdx = 0;
-  List pageList = [HomePage(),DiscoverPage(), MyPage()];
+  List pageList = [
+    HomePage(),
+    MyFlutterMap(),
+    MyPage(),
+    ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:oktoast/oktoast.dart';
 import './mySwiper.dart';
 
 class DiscoverPage extends StatefulWidget {
@@ -23,7 +25,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
             children: [
               Container(
                 height: 200,
-                width: 100,
+                width: 10,
                 color: Colors.red,
               ),
               // Expanded(
@@ -36,8 +38,15 @@ class _DiscoverPageState extends State<DiscoverPage> {
               // ),
               Container(
                 height: 200,
-                width: 100,
+                width: 100.w,
                 color: Colors.blue,
+              ),
+              TextButton(
+                onPressed: () {
+                  showToast("请先登录");
+                  print('4553465');
+                },
+                child: Text("登录"),
               ),
             ]),
         // child: MySwiper(),

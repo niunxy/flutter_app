@@ -39,8 +39,13 @@ dependencies:
   flutter_swiper_view: ^1.1.8
   dio: ^5.4.1
   shared_preferences: ^2.0.13
-  # fluro: ^1.5.0
+  fluro: ^2.0.5
   oktoast: ^3.0.0
+  flutter_screenutil: ^5.9.3
+  flutter_map: ^7.0.2
+  # vector_map_tiles: ^8.0.0
+  # vector_tile_renderer: ^5.2.0
+  # flutter_inappwebview: ^5.8.0
 
 dev_dependencies:
   flutter_test:
